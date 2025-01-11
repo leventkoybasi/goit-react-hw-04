@@ -8,7 +8,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "modern-normalize/modern-normalize.css";
 import App from "./App.jsx";
 //Import SASS
-import "../scss/custom.scss";
+import "./custom.scss";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <App />
