@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ReactModal from "react-modal";
+import LoadMoreButton from "./LoadMoreButton";
 
 function ImageModal() {
   const [showModal, setShowModal] = useState(false);
@@ -14,9 +15,7 @@ function ImageModal() {
 
   return (
     <div>
-      <button onClick={handleOpenModal} className='btn btn-primary'>
-        Trigger Modal
-      </button>
+      <LoadMoreButton handleOpenModal={handleOpenModal} />
       <ReactModal
         isOpen={showModal}
         onRequestClose={handleCloseModal}
@@ -38,6 +37,7 @@ function ImageModal() {
             aria-label='Close'
             onClick={handleCloseModal}
           ></button>
+
           <div>
             <img
               src='https://picsum.photos/id/49/1000/800'
