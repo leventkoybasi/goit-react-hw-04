@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import { Toaster, toast } from 'react-hot-toast';
 //CSS
 import styles from './App.module.css';
@@ -42,7 +42,10 @@ function App() {
       <div style={{ marginTop: '120px' }}>
         <ImageGallery picture={picture} />
       </div>
-      <LoadMoreButton page={page} setPage={setPage} search={search} setPicture={setPicture} />
+      {picture.length > 0 && (
+        <LoadMoreButton page={page} setPage={setPage} search={search} setPicture={setPicture} />
+      )}
+
       <GoUpsideButton />
       {error && <ErrorMessage />}
       <ImageModal />
