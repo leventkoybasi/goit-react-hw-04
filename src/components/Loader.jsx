@@ -1,8 +1,11 @@
-import { TailSpin } from "react-loader-spinner";
+import { TailSpin } from 'react-loader-spinner';
 
 function Loader() {
   return (
-    <div>
+    <div
+      className='d-flex justify-content-center align-items-center'
+      style={{ marginTop: '200px' }}
+    >
       <TailSpin
         visible={true}
         height='80'

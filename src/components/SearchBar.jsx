@@ -1,10 +1,13 @@
 import styles from '../App.module.css';
 
-function SearchBar({ search, setSearch, fetchData, setPicture }) {
+function SearchBar({ search, setSearch, fetchData, setPicture, setLoaders }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setLoaders(true);
     const images = await fetchData(search);
     setPicture(images);
+    setLoaders(false);
   };
 
   const handleSearchChange = (e) => {

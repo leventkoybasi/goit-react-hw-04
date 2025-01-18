@@ -9,13 +9,14 @@ import ImageModal from './components/ImageModal';
 import fetchData from './js/fetchData';
 import LoadMoreButton from './components/LoadMoreButton';
 import GoUpsideButton from './components/GoUpsideButton';
+import Loader from './components/Loader';
 // import ErrorMessage from "./components/ErrorMessage";
-// import Loader from "./components/Loader";
 
 function App() {
   const [picture, setPicture] = useState([]);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
+  const [loaders, setLoaders] = useState(false);
 
   return (
     <>
@@ -29,17 +30,17 @@ function App() {
             setSearch={setSearch}
             fetchData={fetchData}
             setPicture={setPicture}
+            setLoaders={setLoaders}
           />
         </div>
         <div className={styles.spacer}></div>
       </div>
-
+      {loaders && <Loader />}
       <div style={{ marginTop: '120px' }}>
         <ImageGallery picture={picture} />
       </div>
       <LoadMoreButton page={page} setPage={setPage} search={search} setPicture={setPicture} />
       <GoUpsideButton />
-
       <ImageModal />
     </>
   );
