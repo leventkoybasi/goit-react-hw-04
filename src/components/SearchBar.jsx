@@ -1,22 +1,31 @@
-import styles from "../App.module.css";
+import styles from '../App.module.css';
 
-function SearchBar() {
+function SearchBar({ search, setSearch, fetchData, setPicture }) {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const images = await fetchData(search);
+    setPicture(images);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+
   return (
-    <>
-      <form className='input-group mb-3'>
-        <input
-          type='text'
-          name='search'
-          className={`form-control ${styles.input}`}
-          placeholder='Search'
-          aria-label='search'
-          aria-describedby='button-addon2'
-        />
-        <button className='btn btn-white' type='button' id='button-addon2'>
-          <i className='bi bi-search'></i>
-        </button>
-      </form>
-    </>
+    <form className='input-group mb-3' onSubmit={handleSubmit}>
+      <input
+        type='text'
+        name='search'
+        className={`form-control ${styles.input}`}
+        placeholder='Search'
+        aria-label='search'
+        value={search}
+        onChange={handleSearchChange}
+      />
+      <button className='btn btn-white' type='submit' id='button-addon2'>
+        <i className='bi bi-search'></i>
+      </button>
+    </form>
   );
 }
 
