@@ -29,10 +29,10 @@ function GoUpsideButton() {
       {showButton && (
         <button
           onClick={scrollToTop}
-          className='btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center position-fixed bottom-0 end-0 mb-4 me-4'
+          className='btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center position-fixed bottom-0 end-0 mb-5 me-4'
           style={{ width: '50px', height: '50px' }}
         >
-          <i className='bi bi-chevron-up text-primary fw-bold'></i>
+          <i className='bi bi-chevron-up text-primary fw-bold fs-3' id='upsidebtn'></i>
         </button>
       )}
     </div>

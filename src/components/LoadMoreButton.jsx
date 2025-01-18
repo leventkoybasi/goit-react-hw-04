@@ -9,12 +9,16 @@ function LoadMoreButton({ page, setPage, search, setPicture }) {
     //scrool
     setTimeout(() => {
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }, 150);
+    }, 160);
   };
 
   return (
     <div className='d-flex align-items-center justify-content-center mt-4'>
-      <button onClick={handlePage} className='btn btn-primary px-4 py-2 mb-5'>
+      <button
+        onClick={handlePage}
+        className='btn btn-primary px-4 py-2'
+        style={{ marginBottom: '60px' }}
+      >
         Load More
       </button>
     </div>

@@ -13,6 +13,7 @@ import LoadMoreButton from './components/LoadMoreButton';
 import GoUpsideButton from './components/GoUpsideButton';
 import Loader from './components/Loader';
 import ErrorMessage from './components/ErrorMessage';
+import Footer from './components/Footer';
 
 function App() {
   const [picture, setPicture] = useState([]);
@@ -65,6 +66,7 @@ function App() {
         onRequestClose={handleCloseModal}
         selectedImage={selectedImage}
       />
+      <Footer />
     </>
   );
 }
