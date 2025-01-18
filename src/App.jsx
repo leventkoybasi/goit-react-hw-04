@@ -1,4 +1,5 @@
 import { useState } from 'react';
+// import { Toaster, toast } from 'react-hot-toast';
 //CSS
 import styles from './App.module.css';
 //Components
@@ -10,13 +11,14 @@ import fetchData from './js/fetchData';
 import LoadMoreButton from './components/LoadMoreButton';
 import GoUpsideButton from './components/GoUpsideButton';
 import Loader from './components/Loader';
-// import ErrorMessage from "./components/ErrorMessage";
+import ErrorMessage from './components/ErrorMessage';
 
 function App() {
   const [picture, setPicture] = useState([]);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [loaders, setLoaders] = useState(false);
+  const [error, setError] = useState(false);
 
   return (
     <>
@@ -31,6 +33,7 @@ function App() {
             fetchData={fetchData}
             setPicture={setPicture}
             setLoaders={setLoaders}
+            setError={setError}
           />
         </div>
         <div className={styles.spacer}></div>
@@ -41,6 +44,7 @@ function App() {
       </div>
       <LoadMoreButton page={page} setPage={setPage} search={search} setPicture={setPicture} />
       <GoUpsideButton />
+      {error && <ErrorMessage />}
       <ImageModal />
     </>
   );

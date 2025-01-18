@@ -1,8 +1,14 @@
 import styles from '../App.module.css';
+import toast from 'react-hot-toast';
 
-function SearchBar({ search, setSearch, fetchData, setPicture, setLoaders }) {
+function SearchBar({ search, setSearch, fetchData, setPicture, setLoaders, setError }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!search) {
+      toast.error('The search field cannot be empty. Please provide a valid term to search.');
+      setError(true);
+      return;
+    }
 
     setLoaders(true);
     const images = await fetchData(search);
