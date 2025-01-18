@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+// import ReactModal from 'react-modal';
 // import { Toaster, toast } from 'react-hot-toast';
 //CSS
 import styles from './App.module.css';
@@ -19,6 +20,17 @@ function App() {
   const [page, setPage] = useState(1);
   const [loaders, setLoaders] = useState(false);
   const [error, setError] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = (image) => {
+    setSelectedImage(image);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <>
@@ -40,7 +52,7 @@ function App() {
       </div>
       {loaders && <Loader />}
       <div style={{ marginTop: '120px' }}>
-        <ImageGallery picture={picture} />
+        <ImageGallery picture={picture} onImageClick={handleOpenModal} />
       </div>
       {picture.length > 0 && (
         <LoadMoreButton page={page} setPage={setPage} search={search} setPicture={setPicture} />
@@ -48,7 +60,11 @@ function App() {
 
       <GoUpsideButton />
       {error && <ErrorMessage />}
-      <ImageModal />
+      <ImageModal
+        isOpen={showModal}
+        onRequestClose={handleCloseModal}
+        selectedImage={selectedImage}
+      />
     </>
   );
 }

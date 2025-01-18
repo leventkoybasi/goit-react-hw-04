@@ -1,10 +1,10 @@
 import ImageCard from './ImageCard';
 
-function ImageGallery({ picture }) {
+function ImageGallery({ picture, onImageClick }) {
   return (
     <div className='container mt-4'>
       <div className='row'>
-        <ImageCard picture={picture} />
+        <ImageCard picture={picture} onImageClick={onImageClick} />
       </div>
     </div>
   );
