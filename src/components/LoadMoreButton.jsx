@@ -9,7 +9,7 @@ function LoadMoreButton({ page, setPage, search, setPicture }) {
     //scrool
     setTimeout(() => {
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }, 100);
+    }, 150);
   };
 
   return (

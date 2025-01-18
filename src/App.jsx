@@ -8,6 +8,7 @@ import ImageGallery from './components/ImageGallery';
 import ImageModal from './components/ImageModal';
 import fetchData from './js/fetchData';
 import LoadMoreButton from './components/LoadMoreButton';
+import GoUpsideButton from './components/GoUpsideButton';
 // import ErrorMessage from "./components/ErrorMessage";
 // import Loader from "./components/Loader";
 
@@ -37,6 +38,7 @@ function App() {
         <ImageGallery picture={picture} />
       </div>
       <LoadMoreButton page={page} setPage={setPage} search={search} setPicture={setPicture} />
+      <GoUpsideButton />
 
       <ImageModal />
     </>
