@@ -20,6 +20,14 @@ function SearchBar({ search, setSearch, fetchData, setPicture, setLoaders, setEr
     setSearch(e.target.value);
   };
 
+  const handleSearchDelete = () => {
+    setSearch('');
+    setPicture([]);
+    setLoaders(false);
+    setError(false);
+    toast.success('Search term cleared successfully.');
+  };
+
   return (
     <form className='input-group mb-3' onSubmit={handleSubmit}>
       <input
@@ -31,6 +39,16 @@ function SearchBar({ search, setSearch, fetchData, setPicture, setLoaders, setEr
         value={search}
         onChange={handleSearchChange}
       />
+      {search && (
+        <button
+          className='btn btn-white'
+          type='button'
+          id='button-addon2'
+          onClick={handleSearchDelete}
+        >
+          <i className='bi bi-x-octagon text-danger'></i>
+        </button>
+      )}
       <button className='btn btn-white' type='submit' id='button-addon2'>
         <i className='bi bi-search'></i>
       </button>
